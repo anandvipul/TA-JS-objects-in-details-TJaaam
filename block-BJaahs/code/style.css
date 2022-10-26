@@ -1,0 +1,32 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: sans-serif;
+}
+
+main {
+    max-width: 800px;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10vh;
+}
+
+ul li{
+    list-style-type: none;
+    margin-top: 1em;
+}
+
+input, span {
+    vertical-align: middle;
+}
+
+.green {
+    color: green;
+}
