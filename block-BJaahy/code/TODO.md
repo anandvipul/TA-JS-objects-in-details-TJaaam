@@ -18,6 +18,43 @@
 
 - Check the `isEqual` method and pass the two instance you created above.
 
+```js
+class Square {
+constructor (side) {
+this.width = side;
+this.length = side;
+}
+description() {
+alert(`The Square is ${this.width} * ${this.height}`);
+}
+calcArea() {
+return `${this.width*this.height}`;
+}
+
+get area() {
+return `Area is ${this.width*this.height}`;
+}
+
+set area(area) {
+this.length = Math.sqrt(area);
+this.width = Math.sqrt(area);
+}
+
+static isEqual(sqr1, sqr2) {
+if (sqr1.length*sqr1.width == sqr2.length*sqr2.width) {
+return true;
+}
+}
+}
+
+let s1 = new Square(6);
+let s2 = new Square(6);
+
+Square.isEqual(s1, s2);
+
+```
+
+
 ## User Class
 
 - Create a class named `User` that accepts `firstName` and `lastName` property
