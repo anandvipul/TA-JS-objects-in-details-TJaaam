@@ -21,20 +21,20 @@ function createUser(name, id, noOfProjects) {
   User.id = id;
   User.noOfProjects = noOfProjects;
   User.getProjects = () => this.noOfProjects;
-  User.changeName = (newName) => this.name = newName;
-  User.incrementProject = () => this.noOfProject += 1;
-  User.idecrementProject = () => this.noOfProject -= 1;
+  User.changeName = (newName) => User.name = newName;
+  User.incrementProject = () => User.noOfProject += 1;
+  User.idecrementProject = () => User.noOfProject -= 1;
   return User;
+}
 
 // Using Object.create (prototypal pattern)
   let userMethods = {
     getProjects: () => this.noOfProjects,
-    changeName: (newName) => {
-      this.name = newName;
-      return this;
+    changeName: function (newName) {
+      this.name = newName;   
     },
-    incrementProject: () => this.noOfProject += 1,
-    decrementProject: () => this.noOfProject -= 1,
+    incrementProject: function ()  { this.noOfProjects += 1 },
+    decrementProject: function ()  { this.noOfProject -= 1 },
   };
   
   function createUser(name, id, noOfProject) {
@@ -47,4 +47,63 @@ function createUser(name, id, noOfProjects) {
     
   
 // Using Pseudoclassical Way
+
+
+function User(name, id, noOfProject) {
+  
+    this.name = name;
+    this.id = id;
+    this.noOfProjects = noOfProject;
+  
+};
+
+User.prototype = {
+  getProjects: () => this.noOfProjects,
+    changeName: function (newName) {
+      this.name = newName;   
+    },
+  getProjects: function () { return this.noOfProjects},
+    incrementProject: function ()  { this.noOfProjects += 1 },
+    decrementProject: function ()  { this.noOfProject -= 1 },
+};
+  
+
+
+  
+  
+
+
 // Using Class
+
+
+
+// TEST
+
+class User {
+  constructor (name, id, noOfProject) {
+    this.name = name;
+    this.id = id;
+    this.noOfProject = noOfProject;
+  }
+  changeName(newName) {
+      this.name = newName;   
+    }
+  incrementProject()  { this.noOfProjects += 1 }
+  decrementProject()  { this.noOfProject -= 1 }
+  getProjects() { return this.noOfProjects}
+}
+    
+
+let jack = new User("Jack", 23, 1);
+let jill = new User("Jill", 14, 1);
+
+
+
+
+console.group("Jack");
+console.log(jack.name);
+jack.changeName("jack changed");
+console.log(jack.name);
+
+
+console.groupEnd();
