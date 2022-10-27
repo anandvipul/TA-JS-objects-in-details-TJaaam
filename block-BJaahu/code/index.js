@@ -65,10 +65,10 @@ this.title = title;
 this.options = options;
 this.correctAnswerIndex = correctAnswerIndex;
   }
-  function isAnswerCorrect(index) {
+  isAnswerCorrect(index) {
     return index == this.correctAnswerIndex;
   }
-  function getCorrectAnswer() {
+  getCorrectAnswer() {
     return this.options[this.correctAnswerIndex];
   }
   
