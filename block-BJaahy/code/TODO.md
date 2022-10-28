@@ -22,7 +22,7 @@
 class Square {
 constructor (side) {
 this.width = side;
-this.length = side;
+this.height = side;
 }
 description() {
 alert(`The Square is ${this.width} * ${this.height}`);
@@ -35,13 +35,13 @@ get area() {
 return `Area is ${this.width*this.height}`;
 }
 
-set area(area) {
-this.length = Math.sqrt(area);
-this.width = Math.sqrt(area);
+set area(value) {
+this.height = Math.sqrt(value);
+this.width = Math.sqrt(value);
 }
 
 static isEqual(sqr1, sqr2) {
-if (sqr1.length*sqr1.width == sqr2.length*sqr2.width) {
+if (sqr1.height*sqr1.width == sqr2.height*sqr2.width) {
 return true;
 }
 }
@@ -74,3 +74,26 @@ Square.isEqual(s1, s2);
 - Check the `fullName` using getter
 
 - Check the `nameContains` method
+
+```js
+class User {
+    constructor (firstName, lastName) {
+        this.firstName = firstName;
+        lastName.length > 0 ? this.lastName = lastName : this.lastName = "";
+        
+    }
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    set fullName(fullName) {
+        let temp = fullName.split(" ");
+        this.firstName = temp[0];
+        temp.length > 1 ? this.lastName = temp[1] : this.lastName = "";
+    }
+
+    nameContains(str) {
+        return `${this.firstName} ${this.lastName}`.includes(str);
+    }
+}
