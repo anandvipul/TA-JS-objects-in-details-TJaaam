@@ -69,6 +69,10 @@ function PersonConstructor() {
     this.greet = function() {
         console.log("Hello");
     };
+
+    this.introduce = function() {
+        console.log(`Hi, my name is ${this.name}`);
+    }
 }
 ```
 
@@ -92,11 +96,7 @@ Without editing the code you've already written, add an `introduce` method to th
 
 ```js
 
-PersonConstructor.prototype = {
-    this.introduce = function {
-        console.log(`Hi, my name is ${this.name}`);
-    }
-}
+
 
 ```
 
@@ -132,7 +132,7 @@ class DeveloperClass extends PersonClass {
     }
 
     introduce() {
-        console.log("Hello World, my name is ${this.name}`);
+        console.log(`Hello World, my name is ${this.name}`);
     }
 }
 
@@ -143,6 +143,9 @@ class DeveloperClass extends PersonClass {
 #### Challenge 1/5
 
 Create an object `adminFunctionStore` that has access to all methods in the `userFunctionStore` object, without copying them over individually.
+
+
+
 
 #### Challenge 2/5
 
@@ -159,3 +162,34 @@ Make sure that `adminFactory` objects have access to `adminFunctionStore` method
 #### Challenge 5/5
 
 Create a method called `sharePublicMessage` that logs 'Welcome users!' and will be available to `adminFactory` objects, but not `userFactory` objects. Do not add this method directly in the `adminFactory` function.
+
+
+```js
+let userFunctionStore = {
+    sayType() {
+        console.log(`I am a ${this.type}`);
+    },
+};
+
+function userFactory(name, score) {
+    let user = Object.create(userFunctionStore);
+    user.type = "User";
+    user.name = name;
+    user.score = score;
+    return user;
+}
+
+
+let adminFunctionStore = Object.create(userFunctionStore);
+
+function adminFactory(name, score) {
+    let obj = userFactory(name, score);
+    Object.setPrototypeOf(obj, adminFunctionStore);
+    obj.type = 'Admin';
+    return obj;
+}
+
+adminFunctionStore.sharePublicMessage = function() {
+    console.log("Welcome user");
+}
+```
