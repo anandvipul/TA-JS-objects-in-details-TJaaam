@@ -17,6 +17,30 @@ Methods
 
 - `summary()` - returns `I live in ${location} and I have ${numberOfLegs}`
 
+
+```js
+function Animal(location, numberOfLegs) {
+    this.location = location;
+    this.numberOfLegs = numberOfLegs;
+}
+
+Animal.prototype = {
+    eat: function() {
+        console.log(`I live in ${this.location} and I can eat`);
+    },
+    changeLocation: function(newLocation) {
+        this.location = newLocation;
+    },
+    summary: function() {
+        console.log(`I live in ${location} and I have ${numberOfLegs}`);
+    }
+}
+
+let cat = new Animal('Iran', 4);
+cat.eat();
+
+```
+
 #### Dog
 
 It will have all the properties and methods of the Animal. These are the extra properties and methods these dogs will have.
@@ -32,6 +56,12 @@ Methods:
 - `changeName(newName)` - accepts the name property and updates the name of the dog
 - `changeColor(newColor)` - accepts the new color and updates the color of the dog
 - `summary()` - returns `I am ${name} and I am of ${color} color. I can also bark`
+
+
+```js
+function Dog(name, color)
+
+```
 
 #### Cat
 
