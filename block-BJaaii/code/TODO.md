@@ -14,6 +14,44 @@ Data:
 
 - `stack`
 
+```JS
+class Stack {
+    constructor() {
+        this.stack = [];
+    }
+
+    push(value) {
+        return this.stack.push(value);
+    }
+
+    pop() {
+        return this.stack.pop();
+    }
+
+    peek(index = this.stack.length - 1) {
+        return this.stack[index];
+    }
+
+    reverse() {
+        return this.stack.reverse();
+    }
+
+    isEmpty() {
+        return !(this.stack.length > 0);
+    }
+
+    displayStack() {
+        return this.stack.join(" ");
+    }
+
+    get length() {
+        return this.stack.length;
+    }
+}
+
+
+```
+
 Methods:
 
 - `push`: will accept a value and add to the stack. Stack adds data at the end
@@ -26,6 +64,33 @@ Methods:
 Getter
 
 - `length`: returns the current length of the stack.
+
+```js
+
+class Queue {
+    constructor() {
+        this.queue = [];
+    }
+    enque(value) {
+        return this.queue.push(value)
+    }
+    dequeue(value) {
+        return this.queue.splice(0, 1);
+    }
+    peek(index = 0) {
+        return this.queue[index];
+    }
+    isEmpty() {
+        return !(this.queue.length > 0);
+    }
+    displayQueue() {
+    return this.queue.join(" ");
+    }
+    get length() {
+        return this.queue.length;
+    }
+}
+```
 
 #### Test
 
